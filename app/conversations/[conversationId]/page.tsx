@@ -1,7 +1,9 @@
 import getConversationById from '@/app/actions/getConversationById';
+import getMessages from '@/app/actions/getMessages';
 import EmptyState from '@/app/components/EmptyState';
 import Header from './component/Header';
-import getMessages from '@/app/actions/getMessages';
+import Body from './component/Body';
+import Form from './component/Form';
 
 interface conversationIdProps {
   conversationId: string;
@@ -14,7 +16,7 @@ const conversationId = async ({ params }: { params: conversationIdProps }) => {
   if (!conversation) {
     return (
       <div className="lg:pl-80 h-full">
-        <div className="h-full flex flex-col ">
+        <div className="h-full flex flex-col">
           <EmptyState />
         </div>
       </div>
@@ -25,6 +27,8 @@ const conversationId = async ({ params }: { params: conversationIdProps }) => {
     <div className="lg:pl-80 h-full">
       <div className="h-full flex flex-col">
         <Header conversation={conversation} />
+        <Body />
+        <Form />
       </div>
     </div>
   );

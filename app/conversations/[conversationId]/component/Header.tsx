@@ -18,8 +18,8 @@ const Header: FC<HeaderProps> = ({ conversation }) => {
   const otherUser = useOtherUser(conversation);
 
   const statusText = useMemo(() => {
-    if (conversation.isGroup) {
-      return `${conversation.users.length} members`;
+    if (conversation?.isGroup) {
+      return `${conversation?.users.length} members`;
     }
 
     return 'Active';
@@ -36,7 +36,7 @@ const Header: FC<HeaderProps> = ({ conversation }) => {
         </Link>
         <Avatar user={otherUser} />
         <div className="flex flex-col">
-          <div>{conversation.name || otherUser.name}</div>
+          <div>{conversation?.name || otherUser?.name}</div>
           <div className="text-sm font-light text-neutral-500">
             {statusText}
           </div>
